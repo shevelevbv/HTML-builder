@@ -13,6 +13,7 @@ const rl = readline.createInterface(stdin, stdout);
 
 rl.setPrompt('Hi! Please enter some text here:\n');
 rl.prompt();
+
 rl.on('line', line => {
   if (line.trim() === 'exit') process.exit();
   output.write(line + '\n');
