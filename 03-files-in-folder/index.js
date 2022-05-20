@@ -15,6 +15,6 @@ fs.readdir(filePath, {withFileTypes: true}, (error, files) => {
   files.filter(file => file.isFile()).forEach(file => fs.stat(path.join(filePath, file.name), (error, stats) => {
     if (error) return console.error(error.message);
     const fileExt = path.extname(path.join(filePath, file.name));
-    stdout.write(`${path.basename(path.join(filePath, file.name), fileExt)} - ${fileExt.replace('.', '')} - ${stats.size / 1000}kb\n`);
+    stdout.write(`${path.basename(path.join(filePath, file.name), fileExt)} - ${fileExt.replace('.', '')} - ${stats.size}b\n`);
   }));
 });
