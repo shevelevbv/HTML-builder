@@ -102,6 +102,9 @@ const writeStream = fs.createWriteStream(path.join(__dirname, 'project-dist', 's
  * The method searches for CSS files within a directory and bundles the styles into a single file.
  */
 fs.readdir(stylesFolderPath, (error, files) => {
+  if (files.indexOf('footer.css') > -1) {
+    files.push(files.splice(files.indexOf('footer.css'), 1)[0]);
+  }
   files.forEach(file => {
     if (error) return console.error(error.message);
     const filePath = path.join(stylesFolderPath, file);
