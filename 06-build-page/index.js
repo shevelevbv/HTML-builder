@@ -6,8 +6,7 @@ makeDir(path.join(__dirname, 'project-dist'));
 const readableStream = fs.createReadStream(path.join(__dirname, 'template.html'), 'utf-8');
 const originalFolder = path.join(__dirname, 'assets');
 const copyFolder = path.join(__dirname, 'project-dist', 'assets');
-const stylesFolderPath = path.join(__dirname, 'styles');
-const writeStream = fs.createWriteStream(path.join(__dirname, 'project-dist', 'style.css'));
+
 let data = '';
 
 readableStream.on('data', chunk => data += chunk);
@@ -95,6 +94,9 @@ function copyDir(sourceFolderPath, destFolderPath) {
     });
   });
 }
+
+const stylesFolderPath = path.join(__dirname, 'styles');
+const writeStream = fs.createWriteStream(path.join(__dirname, 'project-dist', 'style.css'));
 
 /**
  * The method searches for CSS files within a directory and bundles the styles into a single file.
